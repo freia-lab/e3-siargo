@@ -1,0 +1,72 @@
+record(stringin,"$(P)$(D):SerialNo") {
+    field(DESC, "Serial number")				     
+    field(DTYP,"asynOctetRead")
+    field(INP,"@asyn($(PORT_RO) 0)STRING_HIGH_LOW")
+    field(SCAN,"I/O Intr")
+}
+
+record(ai, "$(P)$(D):FlowRt") {
+    field(DESC, "Gas flow rate")
+    field(DTYP, "asynInt32")
+    field(INP,"@asynMask($(PORT_RO) 10 32)INT32_BE")
+    field(LINR,"NO CONVERSION")
+    field(ASLO,"0.001")
+    field(HOPR,"400")
+    field(LOPR,"0")
+    field(PREC,"3")
+    field(EGU, "Nm³/h")
+    field(SCAN,"I/O Intr")
+    field(SMOO, "0.95")
+    info (autosaveFields, "SMOO")
+}
+
+record(ai, "$(P)$(D):Flow-acc1") {
+    field(DESC, "Accumulated gas flow")
+    field(DTYP, "asynInt32")
+    field(INP,"@asynMask($(PORT_RO) 12 32)INT32_BE")
+    field(LINR,"NO CONVERSION")
+    field(HOPR,"4000000")
+    field(LOPR,"0")
+    field(PREC,"0")
+    field(EGU, "Nm³")
+    field(SCAN,"I/O Intr")
+}
+record(ai, "$(P)$(D):Flow-acc2") {
+    field(DESC, "Accumulated gas flow")
+    field(DTYP, "asynInt32")
+    field(INP,"@asynMask($(PORT_RO) 14 16)MODBUS_DATA")
+    field(LINR,"NO CONVERSION")
+    field(ASLO,"0.001")
+    field(HOPR,"1")
+    field(LOPR,"0")
+    field(PREC,"3")
+    field(EGU, "Nm³")
+    field(SCAN,"I/O Intr")
+    field(FLNK, "$(P)$(D):AccFlow PP")
+}
+
+record(calc, "$(P)$(D):AccFlow") {
+    field(DESC, "Accumulated gas flow")
+    field(INPA, "$(P)$(D):Flow-acc1")
+    field(INPB, "$(P)$(D):Flow-acc2")
+    field(CALC, "A+B")
+    field(EGU, "Nm³")
+    field(PREC,"3")
+}
+
+record(ai, "$(P)$(D):T") {
+    field(DESC, "Ambient temperature")
+    field(DTYP, "asynInt32")
+    field(INP,"@asynMask($(PORT_RO) 15 16)MODBUS_DATA")
+    field(LINR,"LINEAR")
+    field(EGUL,"0")
+    field(EGUF,"655.35")
+    field(HOPR,"60.0")
+    field(LOPR,"0")
+    field(PREC,"2")
+    field(EGU, "°C")
+    field(SCAN,"I/O Intr")
+    field(SMOO, "0.8")
+    info (autosaveFields, "SMOO")
+}
+

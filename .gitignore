@@ -10,6 +10,7 @@
 core.*
 *-loc/*.Makefile
 siargo/*.Makefile
+siargo/O.*
 cellMods/
 testMods*/
 *PVs.list

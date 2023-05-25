@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2023-05-25 11:38:20 by konrad-->
+<display version="2.0.0">
+  <name>N2-flowmeters</name>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>N2 Flow Meters</text>
+    <x use_class="true">20</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height use_class="true">50</height>
+    <font use_class="true">
+      <font name="Header 1" family="Source Sans Pro" style="BOLD_ITALIC" size="36.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="HEADER-TEXT" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <horizontal_alignment use_class="true">0</horizontal_alignment>
+    <vertical_alignment use_class="true">1</vertical_alignment>
+    <wrap_words use_class="true">false</wrap_words>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="open_display">
+        <file>../freia-symbols/display-builder/asyn/asynRecord.bob</file>
+        <macros>
+          <P>ioc22-siargo:</P>
+          <R>asynRec</R>
+        </macros>
+        <target>replace</target>
+        <description>Asyn Record...</description>
+      </action>
+    </actions>
+    <x>590</x>
+    <y>470</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display</name>
+    <macros>
+      <D>MFM-FREIA</D>
+      <P>Env-Gas:</P>
+    </macros>
+    <file>helper-opi-files/siargo-flowmeter.bob</file>
+    <x>40</x>
+    <y>70</y>
+    <width>730</width>
+    <height>280</height>
+  </widget>
+</display>
