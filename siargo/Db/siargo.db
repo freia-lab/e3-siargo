@@ -70,3 +70,20 @@ record(ai, "$(P)$(D):T") {
     info (autosaveFields, "SMOO")
 }
 
+##################################################
+#
+# Commands
+
+record(longout, "$(P)$(D):WriteEnable") {
+    field(DESC, "Write enable")
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,"@asynMask($(PORT_WO) 0x00FF 0xFFFF)")
+    field(VAL, "0xAA55")
+}
+
+record(longout, "$(P)$(D):AccFlow-Rst") {
+    field(DESC, "Reset accumulated flow")
+    field(DTYP, "asynUInt32Digital")
+    field(OUT,"@asynMask($(PORT_WO) 0x00F2 0xFFFF)")
+    field(VAL, "0x0001")
+}
