@@ -18,10 +18,10 @@
 #			 'PLC type'
 
 
-drvModbusAsynConfigure(RO_DATA_$(MODBUS_ADR), "$(ASYN_PORT_NAME)", $(MODBUS_ADR), 3, 0x0030, 16, "UINT16", 4000, "siargo")
+drvModbusAsynConfigure(RO_DATA_$(ASYN_PORT_NAME)_$(MODBUS_ADR), "$(ASYN_PORT_NAME)", $(MODBUS_ADR), 3, 0x0030, 16, "UINT16", 4000, "siargo")
 
-drvModbusAsynConfigure(WO_DATA_$(MODBUS_ADR), "$(ASYN_PORT_NAME)", $(MODBUS_ADR), 6, -1, 1, "UINT16", 0, "siargo")
+drvModbusAsynConfigure(WO_DATA_$(ASYN_PORT_NAME)_$(MODBUS_ADR), "$(ASYN_PORT_NAME)", $(MODBUS_ADR), 6, -1, 1, "UINT16", 0, "siargo")
 
 #Load your database defining the EPICS records
 
-dbLoadRecords("siargo.db", "PORT_RO=RO_DATA_$(MODBUS_ADR),PORT_WO=WO_DATA_$(MODBUS_ADR),P=$(PREFIX),D=$(DEV_NAME)")
+dbLoadRecords("siargo.db", "PORT_RO=RO_DATA_$(ASYN_PORT_NAME)_$(MODBUS_ADR),PORT_WO=WO_DATA_$(ASYN_PORT_NAME)_$(MODBUS_ADR),P=$(PREFIX),D=$(DEV_NAME)")
