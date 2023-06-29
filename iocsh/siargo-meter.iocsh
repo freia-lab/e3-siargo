@@ -4,6 +4,12 @@
 #- ASYN_PORT_NAME - MODBUS ASYN <name>
 #- PREFIX	  - PV PREFIX
 #- MODBUS_ADR	  - Modbus address
+#- ASLO		  - linear scale for flow rate (0.001 
+#- 		    for gauge set for Nm³/h, 0.00006
+#-		    for gauge set for SLPM
+#- SCALE	  - scale factor for total flow
+#  		    (1.0 for gauge set for Nm³,
+#-		    0.001 for gauge set for SL)
 #-
 
 
@@ -24,4 +30,4 @@ drvModbusAsynConfigure(WO_DATA_$(ASYN_PORT_NAME)_$(MODBUS_ADR), "$(ASYN_PORT_NAM
 
 #Load your database defining the EPICS records
 
-dbLoadRecords("siargo.db", "PORT_RO=RO_DATA_$(ASYN_PORT_NAME)_$(MODBUS_ADR),PORT_WO=WO_DATA_$(ASYN_PORT_NAME)_$(MODBUS_ADR),P=$(PREFIX),D=$(DEV_NAME)")
+dbLoadRecords("siargo.db", "PORT_RO=RO_DATA_$(ASYN_PORT_NAME)_$(MODBUS_ADR),PORT_WO=WO_DATA_$(ASYN_PORT_NAME)_$(MODBUS_ADR),P=$(PREFIX),D=$(DEV_NAME),ASLO=$(ASLO),SCALE=$(SCALE)")

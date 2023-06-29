@@ -10,7 +10,7 @@ record(ai, "$(P)$(D):FlowRt") {
     field(DTYP, "asynInt32")
     field(INP,"@asynMask($(PORT_RO) 10 32)INT32_BE")
     field(LINR,"NO CONVERSION")
-    field(ASLO,"0.001")
+    field(ASLO,"$(ASLO)")
     field(HOPR,"400")
     field(LOPR,"0")
     field(PREC,"3")
@@ -49,7 +49,8 @@ record(calc, "$(P)$(D):AccFlow") {
     field(DESC, "Accumulated gas flow")
     field(INPA, "$(P)$(D):Flow-acc1")
     field(INPB, "$(P)$(D):Flow-acc2")
-    field(CALC, "A+B")
+    field(INPC, "$(SCALE)")
+    field(CALC, "(A+B)*C")
     field(EGU, "Nm³")
     field(PREC,"3")
 }

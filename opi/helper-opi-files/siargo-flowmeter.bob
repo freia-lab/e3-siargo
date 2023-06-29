@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2023-05-26 15:30:20 by konrad-->
+<!--Saved on 2023-06-29 14:12:42 by konrad-->
 <display version="2.0.0">
   <name>siargo-flowmeter</name>
   <widget type="label" version="2.0.0">
@@ -82,12 +82,12 @@
     <name>Action Button</name>
     <actions execute_as_one="true">
       <action type="write_pv">
-        <pv_name>Env-Gas:MFM-FREIA:WriteEnable</pv_name>
+        <pv_name>$(P)$(D):WriteEnable</pv_name>
         <value>43605</value>
         <description>Write enable</description>
       </action>
       <action type="write_pv">
-        <pv_name>Env-Gas:MFM-FREIA:AccFlow-Rst</pv_name>
+        <pv_name>$(P)$(D):AccFlow-Rst</pv_name>
         <value>1</value>
         <description>Clear Accumulated flow</description>
       </action>

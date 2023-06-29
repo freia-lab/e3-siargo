@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2023-05-27 18:58:29 by konrad-->
+<!--Saved on 2023-06-29 14:12:56 by konrad-->
 <display version="2.0.0">
   <name>N2-flowmeters</name>
   <widget type="label" version="2.0.0">
@@ -37,7 +37,7 @@
       </action>
     </actions>
     <x>620</x>
-    <y>350</y>
+    <y>20</y>
     <tooltip>$(actions)</tooltip>
   </widget>
   <widget type="embedded" version="2.0.0">
@@ -48,6 +48,17 @@
     </macros>
     <file>helper-opi-files/siargo-flowmeter.bob</file>
     <y>60</y>
+    <width>730</width>
+    <height>280</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display_1</name>
+    <macros>
+      <D>MFM-Hus3</D>
+      <P>Env-Gas:</P>
+    </macros>
+    <file>helper-opi-files/siargo-flowmeter.bob</file>
+    <y>330</y>
     <width>730</width>
     <height>280</height>
   </widget>
