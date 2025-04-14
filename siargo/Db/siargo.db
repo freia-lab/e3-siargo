@@ -88,3 +88,23 @@ record(longout, "$(P)$(D):AccFlow-Rst") {
     field(OUT,"@asynMask($(PORT_WO) 0x00F2 0xFFFF)")
     field(VAL, "0x0001")
 }
+
+##################################################
+#
+# Help records
+
+# A help record to check if data read from Modbus
+# via Modbus gateway updates ok. This record is to be used
+# for reporting an error when the Modbus data is read
+# without any error but it's the old data, not the current one
+#
+record(calc, "$(P)$(D):sAlive") {
+   field(DESC, "Live data OK")
+   field(SCAN, "10 second")
+   field(INPA, "$(P)$(D):AccFlow")
+   field(INPB, "$(P)$(D):sAlive.LA")
+   field(CALC, "((A-B)>0)?1:0")
+   field(LOW, "0.5")
+   field(PINI, "YES")
+   field(LSV, "MAJOR")
+}
