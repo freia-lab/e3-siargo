@@ -7,6 +7,7 @@
 #- IOCNAME	  - Prefix for the asynRec
 #-
 
+addScan(60)
 
 #-https://epics-modules.github.io/master/asyn/R4-42/asynDriver.html
 #-Specify the TCP endpoint and give your 'bus' an arbitrary name eg. "asynstream1".

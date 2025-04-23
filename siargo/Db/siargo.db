@@ -100,7 +100,7 @@ record(longout, "$(P)$(D):AccFlow-Rst") {
 #
 record(calc, "$(P)$(D):sAlive") {
    field(DESC, "Live data OK")
-   field(SCAN, "10 second")
+   field(SCAN, "60 second")
    field(INPA, "$(P)$(D):AccFlow")
    field(INPB, "$(P)$(D):sAlive.LA")
    field(CALC, "((A-B)>0)?1:0")
