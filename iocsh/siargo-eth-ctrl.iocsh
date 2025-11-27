@@ -8,6 +8,8 @@
 #-
 #- >> Optional
 #- IP_PORT	  - IP port number, default 502
+#- TIME_OUT	  - Modbus time-out, default 1900 ms
+#- WRITE_DELAY	  - Modbus write delay, default 500 ms
 
 epicsEnvSet("IOCDIR", "siargo")
 
@@ -28,7 +30,7 @@ drvAsynIPPortConfigure("$(ASYN_PORT_NAME)","$(IP_ADDR):$(IP_PORT=502)",0,0,1)
 #                      timeoutMsec,
 #                      writeDelayMsec)
 
-modbusInterposeConfig("$(ASYN_PORT_NAME)",0,1900,500)
+modbusInterposeConfig("$(ASYN_PORT_NAME)",0,$(TIME_OUT=1900),$(WRITE_DELAY=500))
 
 dbLoadRecords("asynRecord.db","P=$(IOCNAME),R=:asynRec,PORT='$(ASYN_PORT_NAME)',ADDR='0',IMAX='1024',OMAX='256'")
 
