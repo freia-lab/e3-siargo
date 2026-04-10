@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-04-14 09:59:32 by konrad-->
+<!--Saved on 2026-04-10 09:25:46 by konrad-->
 <display version="2.0.0">
   <name>siargo-flowmeter</name>
   <widget type="label" version="2.0.0">
@@ -64,8 +64,9 @@
   <widget type="label" version="2.0.0">
     <name>Label_5</name>
     <text>$(D)</text>
-    <x>190</x>
+    <x>90</x>
     <y>20</y>
+    <width>80</width>
     <font>
       <font name="Default Bold" family="Source Sans Pro" style="BOLD" size="16.0">
       </font>
@@ -113,5 +114,20 @@
     <height>70</height>
     <tooltip>$(actions)</tooltip>
     <password>freia</password>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED</name>
+    <pv_name>$(P)$(D):sAlive</pv_name>
+    <x>190</x>
+    <y>20</y>
+    <width>100</width>
+    <height>25</height>
+    <off_label>Dead</off_label>
+    <off_color>
+      <color name="MAJOR" red="252" green="13" blue="27">
+      </color>
+    </off_color>
+    <on_label>Alive</on_label>
+    <square>true</square>
   </widget>
 </display>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-04-10 09:37:09 by konrad-->
+<!--Saved on 2026-04-10 09:41:04 by konrad-->
 <display version="2.0.0">
-  <name>N2-flowmeters</name>
+  <name>BMC-flowmeters</name>
   <widget type="label" version="2.0.0">
     <name>Label</name>
     <class>TITLE</class>
-    <text>N2 Flow Meters</text>
+    <text>BMC Flow Meters</text>
     <x use_class="true">20</x>
     <y use_class="true">0</y>
     <width>550</width>
@@ -29,7 +29,7 @@
       <action type="open_display">
         <file>../freia-symbols/display-builder/asyn/asynRecord.bob</file>
         <macros>
-          <P>ioc22-siargo:</P>
+          <P>ioc98-siargo:</P>
           <R>asynRec</R>
         </macros>
         <target>replace</target>
@@ -43,24 +43,12 @@
   <widget type="embedded" version="2.0.0">
     <name>Embedded Display</name>
     <macros>
-      <D>MFM-FREIA</D>
+      <D>CO2</D>
       <P>Env-Gas:</P>
-      <URL>192.168.10.38/ip_en.html</URL>
+      <URL>172.16.140.2/ip_en.html</URL>
     </macros>
     <file>helper-opi-files/siargo-flowmeter.bob</file>
     <y>60</y>
-    <width>730</width>
-    <height>280</height>
-  </widget>
-  <widget type="embedded" version="2.0.0">
-    <name>Embedded Display_1</name>
-    <macros>
-      <D>MFM-Hus3</D>
-      <P>Env-Gas:</P>
-      <URL>130.238.22.3/ip_en.html</URL>
-    </macros>
-    <file>helper-opi-files/siargo-flowmeter.bob</file>
-    <y>330</y>
     <width>730</width>
     <height>280</height>
   </widget>
