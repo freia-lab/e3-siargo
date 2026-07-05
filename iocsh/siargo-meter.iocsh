@@ -14,6 +14,7 @@
 #- >>> Optional
 #- EGU_FR	  - EGU for FlowRt (default Nm³/h)
 #- EGU_F	  - EGU Accflow (default Nm³)
+#- KEEP_TCHANGED  - keep the status for the last temperature change (default 900 s). Used for creating sActive status.
 
 #drvModbusAsynConfigure	 'Port name'
 #			 'Octet port name' 
@@ -32,4 +33,4 @@ drvModbusAsynConfigure(WO_DATA_$(ASYN_PORT_NAME)_$(MODBUS_ADR), "$(ASYN_PORT_NAM
 
 #Load your database defining the EPICS records
 
-dbLoadRecords("siargo.db", "PORT_RO=RO_DATA_$(ASYN_PORT_NAME)_$(MODBUS_ADR),PORT_WO=WO_DATA_$(ASYN_PORT_NAME)_$(MODBUS_ADR),P=$(PREFIX),D=$(DEV_NAME),ASLO=$(ASLO),SCALE=$(SCALE),EGU_FR=$(EGU_FR=Nm³/h),EGU_F=$(EGU_F="Nm³)")
+dbLoadRecords("siargo.db", "PORT_RO=RO_DATA_$(ASYN_PORT_NAME)_$(MODBUS_ADR),PORT_WO=WO_DATA_$(ASYN_PORT_NAME)_$(MODBUS_ADR),P=$(PREFIX),D=$(DEV_NAME),ASLO=$(ASLO),SCALE=$(SCALE),EGU_FR=$(EGU_FR=Nm³/h),EGU_F=$(EGU_F="Nm³),KEEP_HIGH=$(KEEP_TCHANGED=900.0)")
